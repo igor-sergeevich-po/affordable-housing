@@ -1,13 +1,59 @@
+@import-normalize;
+
+:root {
+  --markItem: #fff6a5;
+  --markIcon: #00a0ab;
+  --darkGray: #2c2c2c;
+  --lightGray: #c4c4c4;
+  --backGroundColor: #ffffff;
+  --baseTextColor: #000000;
+  --sunThemeColor: #000000;
+
+  --mainBg: #f9f0e5;
+  --mainBlack: #000000;
+  --mainGradient: linear-gradient(
+    0deg,
+    rgb(249, 230, 219) 0%,
+    rgba(249, 240, 229, 1) 100%
+  );
+  --secondGradient: linear-gradient(
+    350deg,
+    rgba(249, 240, 229, 1) 46%,
+    rgba(249, 230, 219, 1) 59%
+  );
+}
+
+[dark] {
+  --markItem: #e8dc71;
+  --markIcon: #15aeb9;
+  --darkGray: #0e0c0c;
+  --lightGray: #c4c4c4;
+  --backGroundColor: #e7e7e7;
+  --baseTextColor: #000000;
+  --sunThemeColor: #ffffff;
+
+  --mainBg: #f0dac0;
+  --mainBlack: #272323;
+  --mainGradient: linear-gradient(0deg, rgb(250, 206, 180) 0%, rgb(245, 216, 180) 100%);
+  --secondGradient: linear-gradient(
+    350deg,
+    rgb(252, 229, 200) 46%,
+    rgb(245, 200, 174) 59%
+  );
+}
+
 body {
+  background-color: var(--backGroundColor);
+  color: var(--baseTextColor);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Ubuntu";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.App {
+  text-align: center;
 }
