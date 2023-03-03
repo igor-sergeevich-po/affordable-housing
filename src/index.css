@@ -3,11 +3,14 @@
 :root {
   --markItem: #fff6a5;
   --markIcon: #00a0ab;
+  --oldPriceGray: #5a5a5a;
   --darkGray: #2c2c2c;
   --lightGray: #c4c4c4;
   --backGroundColor: #ffffff;
   --baseTextColor: #000000;
   --sunThemeColor: #000000;
+  --itemShadow: #e6e6e6;
+  --locationGray: #8f8f8f;
 
   --mainBg: #f9f0e5;
   --mainBlack: #000000;
@@ -24,13 +27,15 @@
 }
 
 [dark] {
-  --markItem: #e8dc71;
+  --markItem: #fff6a5;
   --markIcon: #15aeb9;
+  --oldPriceGray: #5a5a5a;
   --darkGray: #0e0c0c;
   --lightGray: #c4c4c4;
   --backGroundColor: #e7e7e7;
   --baseTextColor: #000000;
   --sunThemeColor: #ffffff;
+  --itemShadow: #6f6f6f;
 
   --mainBg: #f0dac0;
   --mainBlack: #272323;
@@ -43,10 +48,11 @@
 }
 
 body {
+  box-sizing: border-box;
   background-color: var(--backGroundColor);
-  color: var(--baseTextColor);
+  color: var(--darkGray);
   margin: 0;
-  font-family: "Ubuntu";
+  font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

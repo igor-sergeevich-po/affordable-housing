@@ -1,0 +1,23 @@
+.product-cards {
+  display: flex;
+  flex-direction: column;
+  width: 1280px;
+  margin: 0 auto;
+}
+.product-cards__title {
+  display: flex;
+  width: 968px;
+  justify-content: flex-start;
+}
+.product-cards__title-text {
+  margin-bottom: 8px;
+  padding-left: 30px;
+  font-size: 22px;
+}
+.product-cards__container {
+  display: flex;
+
+  justify-content: center;
+  margin: 0 35px;
+  flex-wrap: wrap;
+}
