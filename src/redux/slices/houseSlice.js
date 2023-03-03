@@ -5,6 +5,7 @@ import axios from "axios";
 const initialState = {
   houses: [],
   housesImg: [],
+  isDownloaded: false,
 };
 
 export const getHouses = createAsyncThunk(
@@ -14,6 +15,9 @@ export const getHouses = createAsyncThunk(
     const resImg = await axios.get("https://jsonplaceholder.typicode.com/photos");
     dispatch(setHouses(res.data));
     dispatch(setHousesImg(resImg.data));
+    setTimeout(() => {
+      dispatch(setStatus(true));
+    }, 500);
   }
 );
 
@@ -26,6 +30,9 @@ export const houseSlice = createSlice({
     },
     setHousesImg: (state, action) => {
       state.housesImg.push(...action.payload);
+    },
+    setStatus: (state, action) => {
+      state.isDownloaded = action.payload;
     },
   },
   extraReducers: {
@@ -41,5 +48,5 @@ export const houseSlice = createSlice({
   },
 });
 
-export const { setHouses, setHousesImg } = houseSlice.actions;
+export const { setHouses, setHousesImg, setStatus } = houseSlice.actions;
 export default houseSlice.reducer;

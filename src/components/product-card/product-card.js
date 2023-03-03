@@ -9,7 +9,7 @@ import "./product-card.css";
 export const ProductCard = ({ house }) => {
   const { oldPrice, price, title, seen, id, locality, date } = house;
   const housesImg = useSelector((state) => state.house.housesImg[id]);
-  console.log(housesImg);
+
   return (
     <div className="product-card" key={house.title}>
       <div className="product-card__image">
