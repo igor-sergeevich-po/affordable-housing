@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/affordable-housing/static/css/main.4363ef00.css",
-    "main.js": "/affordable-housing/static/js/main.bdaf0e9c.js",
+    "main.css": "/affordable-housing/static/css/main.dab28316.css",
+    "main.js": "/affordable-housing/static/js/main.7f329731.js",
     "index.html": "/affordable-housing/index.html",
-    "main.4363ef00.css.map": "/affordable-housing/static/css/main.4363ef00.css.map",
-    "main.bdaf0e9c.js.map": "/affordable-housing/static/js/main.bdaf0e9c.js.map"
+    "main.dab28316.css.map": "/affordable-housing/static/css/main.dab28316.css.map",
+    "main.7f329731.js.map": "/affordable-housing/static/js/main.7f329731.js.map"
   },
   "entrypoints": [
-    "static/css/main.4363ef00.css",
-    "static/js/main.bdaf0e9c.js"
+    "static/css/main.dab28316.css",
+    "static/js/main.7f329731.js"
   ]
 }
