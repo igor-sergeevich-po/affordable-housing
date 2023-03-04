@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   display: flex;
   height: 80px;
   margin-bottom: 30px;
@@ -23,6 +24,7 @@
   transition: 0.3s;
   padding: 15px;
 }
+
 .header__housing-title:hover {
   color: var(--mainBlack);
   transform: translateY(-3px);
@@ -43,4 +45,12 @@
 
 .active {
   color: var(--markIcon);
+}
+.header__favourites-length {
+  position: absolute;
+  border: 1px solid;
+  padding: 1px 3px;
+  font-size: 8px;
+  border-radius: 15px;
+  transition: 0.2s;
 }

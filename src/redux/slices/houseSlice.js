@@ -7,6 +7,7 @@ const initialState = {
   housesImg: [],
   isDownloaded: false,
   favourites: [],
+  currentPage: 1,
 };
 
 export const getHouses = createAsyncThunk(
@@ -18,6 +19,7 @@ export const getHouses = createAsyncThunk(
 
     const res = await axios.get(url);
     const resImg = await axios.get("https://jsonplaceholder.typicode.com/photos");
+
     dispatch(setHouses(res.data));
     dispatch(setHousesImg(resImg.data));
     dispatch(setStatusDownloaded(true));
@@ -37,11 +39,14 @@ export const houseSlice = createSlice({
     setStatusDownloaded: (state, action) => {
       state.isDownloaded = action.payload;
     },
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
     setStatusSeen: (state, action) => {
       console.log("change seen status");
       // state.houses = state.houses.filter((hous) => hous.title !== action.payload);
       state.houses = state.houses.map((hous) => {
-        if (hous.title == action.payload) {
+        if (hous.title === action.payload) {
           hous.seen = true;
         }
         return hous;
@@ -50,6 +55,11 @@ export const houseSlice = createSlice({
   },
 });
 
-export const { setHouses, setHousesImg, setStatusDownloaded, setStatusSeen } =
-  houseSlice.actions;
+export const {
+  setHouses,
+  setHousesImg,
+  setStatusDownloaded,
+  setStatusSeen,
+  setCurrentPage,
+} = houseSlice.actions;
 export default houseSlice.reducer;

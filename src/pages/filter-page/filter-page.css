@@ -1,0 +1,19 @@
+.filter-page {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.filter-page__btn-more {
+  margin-right: 160px;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--markIcon);
+  text-decoration: none;
+  transition: 0.2s;
+  font-size: 14px;
+  line-height: 16.09px;
+  font-weight: 500;
+}
+.filter-page__btn-more:hover {
+  color: rgb(0, 234, 156);
+}

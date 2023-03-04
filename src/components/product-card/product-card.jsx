@@ -6,6 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { setStatusSeen } from "../../redux/slices/houseSlice";
 import "./product-card.css";
+import { addFavourite } from "../../redux/slices/favouriteSlice";
 
 export const ProductCard = ({ house }) => {
   const { oldPrice, price, title, seen, id, locality, date } = house;
@@ -13,9 +14,15 @@ export const ProductCard = ({ house }) => {
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
-    // e.stopImmediatePropogation();
-    // e.stopPropogation();
     dispatch(setStatusSeen(title));
+    e.stopImmediatePropogation();
+    // e.stopPropogation();
+  };
+
+  const setFavourite = (e) => {
+    // e.stopPropogation();
+    dispatch(addFavourite(house));
+    e.stopImmediatePropogation();
   };
   return (
     <div
@@ -36,7 +43,7 @@ export const ProductCard = ({ house }) => {
           src={housesImg.url}
           alt={housesImg.title}
         />
-        <AiOutlineHeart className="icons icon-heart" />
+        <AiOutlineHeart onClick={(e) => setFavourite(e)} className="icons icon-heart" />
         <HiOutlineChartBar className="icons icon-chart" />
       </div>
       <div className="product-card__description">
