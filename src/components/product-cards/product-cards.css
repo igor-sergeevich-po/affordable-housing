@@ -21,3 +21,15 @@
   margin: 0 35px;
   flex-wrap: wrap;
 }
+
+@media (max-width: 600px) {
+  .product-cards {
+    width: 300px;
+  }
+  .product-cards__title-text {
+    font-size: 16px;
+  }
+  .product-cards__container {
+    width: 500px;
+  }
+}

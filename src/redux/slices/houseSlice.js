@@ -6,18 +6,21 @@ const initialState = {
   houses: [],
   housesImg: [],
   isDownloaded: false,
+  favourites: [],
 };
 
 export const getHouses = createAsyncThunk(
   "house/getHouses",
-  async (_, { rejectedWithoutValue, dispatch }) => {
-    const res = await axios.get("https://6075786f0baf7c0017fa64ce.mockapi.io/products");
+  async (url, { rejectedWithoutValue, dispatch }) => {
+    // const url = new URL("https://6075786f0baf7c0017fa64ce.mockapi.io/products");
+    // url.searchParams.append("page", 1);
+    // url.searchParams.append("limit", 2);
+
+    const res = await axios.get(url);
     const resImg = await axios.get("https://jsonplaceholder.typicode.com/photos");
     dispatch(setHouses(res.data));
     dispatch(setHousesImg(resImg.data));
-    setTimeout(() => {
-      dispatch(setStatus(true));
-    }, 500);
+    dispatch(setStatusDownloaded(true));
   }
 );
 
@@ -31,22 +34,22 @@ export const houseSlice = createSlice({
     setHousesImg: (state, action) => {
       state.housesImg.push(...action.payload);
     },
-    setStatus: (state, action) => {
+    setStatusDownloaded: (state, action) => {
       state.isDownloaded = action.payload;
     },
-  },
-  extraReducers: {
-    [getHouses.fulfilled]: () => {
-      console.log("fullfilled");
-    },
-    [getHouses.rejected]: () => {
-      console.log("rejected");
-    },
-    [getHouses.pending]: () => {
-      console.log("pending");
+    setStatusSeen: (state, action) => {
+      console.log("change seen status");
+      // state.houses = state.houses.filter((hous) => hous.title !== action.payload);
+      state.houses = state.houses.map((hous) => {
+        if (hous.title == action.payload) {
+          hous.seen = true;
+        }
+        return hous;
+      });
     },
   },
 });
 
-export const { setHouses, setHousesImg, setStatus } = houseSlice.actions;
+export const { setHouses, setHousesImg, setStatusDownloaded, setStatusSeen } =
+  houseSlice.actions;
 export default houseSlice.reducer;

@@ -3,15 +3,33 @@ import { HiTruck } from "react-icons/hi";
 import { RiShieldStarFill } from "react-icons/ri";
 import { HiOutlineChartBar } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setStatusSeen } from "../../redux/slices/houseSlice";
 import "./product-card.css";
 
 export const ProductCard = ({ house }) => {
   const { oldPrice, price, title, seen, id, locality, date } = house;
   const housesImg = useSelector((state) => state.house.housesImg[id]);
+  const dispatch = useDispatch();
 
+  const handleClick = (e) => {
+    // e.stopImmediatePropogation();
+    // e.stopPropogation();
+    dispatch(setStatusSeen(title));
+  };
   return (
-    <div className="product-card" key={house.title}>
+    <div
+      onClick={(e) => {
+        handleClick(e);
+      }}
+      className={`product-card ${seen ? "product-card__is-seen" : ""}`}
+    >
+      {seen && (
+        <div className="product-card__status-container">
+          <div className="product-card__status">Просмотрено</div>
+        </div>
+      )}
+
       <div className="product-card__image">
         <img
           className="product-card__image-elem"
