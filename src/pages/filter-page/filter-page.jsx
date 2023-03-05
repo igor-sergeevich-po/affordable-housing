@@ -6,14 +6,14 @@ import {
   setCurrentPage,
   setStatusDownloaded,
 } from "../../redux/slices/houseSlice";
-import { Button } from "../../components/button";
-import "./filter-page.css";
 import { Spiner } from "../../components/spiner";
 import { Link } from "react-router-dom";
+import "./filter-page.css";
 
 export const FilterPage = () => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
   const currentPage = useSelector((state) => state.house.currentPage);
+
   const [limitElemOnPage, setLimitElemOnPage] = useState(8);
   const dispatch = useDispatch();
 
@@ -29,6 +29,14 @@ export const FilterPage = () => {
   }, [dispatch]);
 
   const handleFetch = () => {
+    setTimeout(() => {
+      console.log("update");
+      window.scrollBy({
+        top: 50000,
+        behavior: "smooth",
+      });
+    }, 500);
+
     dispatch(setStatusDownloaded(false));
     dispatch(setCurrentPage(currentPage + 1));
     dispatch(getHouses(url));
@@ -38,7 +46,7 @@ export const FilterPage = () => {
     <div className="filter-page">
       {!statusSpiner ? <Spiner /> : <ProductCards />}
 
-      <Link className="filter-page__btn-more" onClick={handleFetch}>
+      <Link href="#" className="filter-page__btn-more" onClick={handleFetch}>
         Показать ещё &or;
       </Link>
     </div>

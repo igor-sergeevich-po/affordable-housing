@@ -6,7 +6,6 @@ const initialState = {
   houses: [],
   housesImg: [],
   isDownloaded: false,
-  favourites: [],
   currentPage: 1,
 };
 
@@ -43,11 +42,17 @@ export const houseSlice = createSlice({
       state.currentPage = action.payload;
     },
     setStatusSeen: (state, action) => {
-      console.log("change seen status");
-      // state.houses = state.houses.filter((hous) => hous.title !== action.payload);
       state.houses = state.houses.map((hous) => {
         if (hous.title === action.payload) {
           hous.seen = true;
+        }
+        return hous;
+      });
+    },
+    setStausFavourites: (state, action) => {
+      state.houses = state.houses.map((hous) => {
+        if (hous.title === action.payload) {
+          hous.isFavourites = !hous.isFavourites;
         }
         return hous;
       });
@@ -61,5 +66,6 @@ export const {
   setStatusDownloaded,
   setStatusSeen,
   setCurrentPage,
+  setStausFavourites,
 } = houseSlice.actions;
 export default houseSlice.reducer;

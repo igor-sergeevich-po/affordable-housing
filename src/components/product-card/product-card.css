@@ -28,7 +28,7 @@
 }
 .product-card:hover {
   box-shadow: var(--markIcon) 0 0 20px 0;
-  transform: scale(1.04);
+  transform: translateY(-3px);
 }
 .product-card__image {
   height: 260px;
@@ -80,6 +80,10 @@
   top: 200px;
   left: 188px;
   color: var(--lightGray);
+}
+.icon-heart__active {
+  color: var(--markIcon);
+  font-size: 26px;
 }
 .icon-chart {
   position: absolute;

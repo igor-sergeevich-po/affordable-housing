@@ -4,32 +4,44 @@ import { RiShieldStarFill } from "react-icons/ri";
 import { HiOutlineChartBar } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { setStatusSeen } from "../../redux/slices/houseSlice";
+import { setStatusSeen, setStausFavourites } from "../../redux/slices/houseSlice";
+import { addFavourite, removeFavourite } from "../../redux/slices/favouriteSlice";
 import "./product-card.css";
-import { addFavourite } from "../../redux/slices/favouriteSlice";
 
 export const ProductCard = ({ house }) => {
   const { oldPrice, price, title, seen, id, locality, date } = house;
+  const favourites = useSelector((state) => state.favourite.favourites);
+
   const housesImg = useSelector((state) => state.house.housesImg[id]);
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     dispatch(setStatusSeen(title));
-    e.stopImmediatePropogation();
-    // e.stopPropogation();
   };
 
-  const setFavourite = (e) => {
-    // e.stopPropogation();
-    dispatch(addFavourite(house));
-    e.stopImmediatePropogation();
+  const setFavourite = () => {
+    let isContain = false;
+    favourites.map((elem) => {
+      if (elem.title === house.title) {
+        isContain = true;
+      }
+    });
+    if (!isContain) {
+      house = { ...house, isFavourites: true };
+
+      dispatch(setStausFavourites(house.title));
+      dispatch(addFavourite(house));
+    } else if (isContain) {
+      dispatch(setStausFavourites(house.title));
+      dispatch(removeFavourite(house.title));
+    }
   };
   return (
     <div
-      onClick={(e) => {
-        handleClick(e);
+      onClick={() => {
+        handleClick();
       }}
-      className={`product-card ${seen ? "product-card__is-seen" : ""}`}
+      className={`product-card ${house.seen === true ? "product-card__is-seen" : ""}`}
     >
       {seen && (
         <div className="product-card__status-container">
@@ -37,13 +49,18 @@ export const ProductCard = ({ house }) => {
         </div>
       )}
 
-      <div className="product-card__image">
+      <div className={`product-card__image`}>
         <img
           className="product-card__image-elem"
           src={housesImg.url}
           alt={housesImg.title}
         />
-        <AiOutlineHeart onClick={(e) => setFavourite(e)} className="icons icon-heart" />
+        <AiOutlineHeart
+          onClick={() => setFavourite()}
+          className={`icons icon-heart ${
+            house?.isFavourites === true ? "icon-heart__active" : ""
+          } `}
+        />
         <HiOutlineChartBar className="icons icon-chart" />
       </div>
       <div className="product-card__description">
@@ -60,6 +77,7 @@ export const ProductCard = ({ house }) => {
         </div>
         <span className="product-card__base-price">{price} &#8381;</span>
         <p className="product-card__description">{title}</p>
+
         <div className="product-card__location">
           <span className="product-card__location-item">{locality}</span>
           <span className="product-card__location-item">{date}</span>

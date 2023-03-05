@@ -3,13 +3,12 @@ import { useSelector } from "react-redux";
 import { ProductCard } from "../product-card/product-card";
 import { Spiner } from "../spiner";
 import { v4 as uuid } from "uuid";
-
 import "./product-cards.css";
 
 export const ProductCards = () => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
-  useEffect(() => {}, [statusSpiner]);
   const houses = useSelector((state) => state.house.houses);
+  useEffect(() => {}, [statusSpiner, houses]);
   return (
     <div className="product-cards">
       <div className="product-cards__container">
