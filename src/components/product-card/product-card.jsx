@@ -9,14 +9,15 @@ import { addFavourite, removeFavourite } from "../../redux/slices/favouriteSlice
 import "./product-card.css";
 
 export const ProductCard = ({ house }) => {
-  const { oldPrice, price, title, seen, id, locality, date } = house;
+  const { oldPrice, price, seen, id, locality, date } = house;
   const favourites = useSelector((state) => state.favourite.favourites);
+  const title = house.title.length > 23 ? house.title.slice(0, 23) + "..." : house.title;
 
   const housesImg = useSelector((state) => state.house.housesImg[id]);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(setStatusSeen(title));
+    dispatch(setStatusSeen(house.title));
   };
 
   const setFavourite = () => {
@@ -27,7 +28,7 @@ export const ProductCard = ({ house }) => {
       }
     });
     if (!isContain) {
-      house = { ...house, isFavourites: true };
+      house = { ...house, isFavourites: true, seen: true };
 
       dispatch(setStausFavourites(house.title));
       dispatch(addFavourite(house));
