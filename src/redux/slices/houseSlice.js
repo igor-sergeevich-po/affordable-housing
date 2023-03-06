@@ -21,6 +21,8 @@ export const getHouses = createAsyncThunk(
 
     dispatch(setHouses(res.data));
     dispatch(setHousesImg(resImg.data));
+
+    console.log("get photos");
     dispatch(setStatusDownloaded(true));
   }
 );

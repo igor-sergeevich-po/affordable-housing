@@ -30,7 +30,6 @@ export const FilterPage = () => {
 
   const handleFetch = () => {
     setTimeout(() => {
-      console.log("update");
       window.scrollBy({
         top: 50000,
         behavior: "smooth",

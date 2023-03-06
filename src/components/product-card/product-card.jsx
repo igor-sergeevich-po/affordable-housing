@@ -6,14 +6,13 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { setStatusSeen, setStausFavourites } from "../../redux/slices/houseSlice";
 import { addFavourite, removeFavourite } from "../../redux/slices/favouriteSlice";
+import { Carousel } from "../carousel";
 import "./product-card.css";
 
 export const ProductCard = ({ house }) => {
   const { oldPrice, price, seen, id, locality, date } = house;
   const favourites = useSelector((state) => state.favourite.favourites);
   const title = house.title.length > 23 ? house.title.slice(0, 23) + "..." : house.title;
-
-  const housesImg = useSelector((state) => state.house.housesImg[id]);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -26,6 +25,7 @@ export const ProductCard = ({ house }) => {
       if (elem.title === house.title) {
         isContain = true;
       }
+      return "";
     });
     if (!isContain) {
       house = { ...house, isFavourites: true, seen: true };
@@ -51,11 +51,13 @@ export const ProductCard = ({ house }) => {
       )}
 
       <div className={`product-card__image`}>
-        <img
+        <Carousel id={id} />
+
+        {/* <img
           className="product-card__image-elem"
           src={housesImg.url}
           alt={housesImg.title}
-        />
+        /> */}
         <AiOutlineHeart
           onClick={() => setFavourite()}
           className={`icons icon-heart ${

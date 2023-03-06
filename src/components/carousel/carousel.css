@@ -1,0 +1,51 @@
+.product-card__carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card__carousel-container {
+  display: flex;
+  height: 260px;
+  transition: 0.3s;
+}
+
+.carousel__navigate {
+  display: flex;
+  gap: 15px;
+}
+
+.carousel__navigate-elem {
+  cursor: pointer;
+  position: absolute;
+  top: 240px;
+  color: white;
+  border: white 2px;
+  border-radius: 15px;
+  background-color: white;
+  transition: 0.3s;
+  line-height: 10px;
+  padding: 2px;
+}
+
+.carousel__activ-btn {
+  color: var(--markIcon);
+  background-color: var(--markIcon);
+}
+
+.carousel__navigate-elem:hover {
+  background-color: var(--markIcon);
+  color: var(--markIcon);
+}
+
+.elem0 {
+  left: 70px;
+}
+.elem1 {
+  left: 90px;
+}
+.elem2 {
+  left: 110px;
+}
+.elem3 {
+  left: 130px;
+}
