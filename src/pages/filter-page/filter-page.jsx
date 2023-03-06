@@ -13,8 +13,9 @@ import "./filter-page.css";
 export const FilterPage = () => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
   const currentPage = useSelector((state) => state.house.currentPage);
+  const unsplash = useSelector((state) => state.house.unsplashImg);
 
-  const [limitElemOnPage, setLimitElemOnPage] = useState(8);
+  const [limitElemOnPage, setLimitElemOnPage] = useState(6);
   const dispatch = useDispatch();
 
   const url = new URL("https://6075786f0baf7c0017fa64ce.mockapi.io/products");
@@ -28,7 +29,10 @@ export const FilterPage = () => {
     }
   }, [dispatch]);
 
+  useEffect(() => {}, [unsplash, statusSpiner]);
+
   const handleFetch = () => {
+    dispatch(setStatusDownloaded(false));
     setTimeout(() => {
       window.scrollBy({
         top: 50000,
@@ -36,7 +40,6 @@ export const FilterPage = () => {
       });
     }, 500);
 
-    dispatch(setStatusDownloaded(false));
     dispatch(setCurrentPage(currentPage + 1));
     dispatch(getHouses(url));
   };

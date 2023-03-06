@@ -5,6 +5,7 @@ import axios from "axios";
 const initialState = {
   houses: [],
   housesImg: [],
+  unsplashImg: [],
   isDownloaded: false,
   currentPage: 1,
 };
@@ -17,13 +18,19 @@ export const getHouses = createAsyncThunk(
     // url.searchParams.append("limit", 2);
 
     const res = await axios.get(url);
-    const resImg = await axios.get("https://jsonplaceholder.typicode.com/photos");
+    // const resImg = await axios.get("https://jsonplaceholder.typicode.com/photos");
+
+    const resUnsplash = await axios
+      .get(
+        "https://api.unsplash.com/photos/random?client_id=NcMjHTa__4twlLaP28avVF_ki52TgJiv0-y9-1iZvXQ&count=24&query=house"
+      )
+
+      .catch((err) => console.log(err));
 
     dispatch(setHouses(res.data));
-    dispatch(setHousesImg(resImg.data));
-
-    console.log("get photos");
+    dispatch(setHousesUnsplash(resUnsplash.data));
     dispatch(setStatusDownloaded(true));
+    // dispatch(setHousesImg(resImg.data));
   }
 );
 
@@ -36,6 +43,9 @@ export const houseSlice = createSlice({
     },
     setHousesImg: (state, action) => {
       state.housesImg.push(...action.payload);
+    },
+    setHousesUnsplash: (state, action) => {
+      state.unsplashImg.push(...action.payload);
     },
     setStatusDownloaded: (state, action) => {
       state.isDownloaded = action.payload;
@@ -65,6 +75,7 @@ export const houseSlice = createSlice({
 export const {
   setHouses,
   setHousesImg,
+  setHousesUnsplash,
   setStatusDownloaded,
   setStatusSeen,
   setCurrentPage,

@@ -4,14 +4,14 @@ import { v4 as uuid } from "uuid";
 import "./carousel.css";
 
 export const Carousel = ({ id }) => {
+  const housesImage = useSelector((state) => state.house.unsplashImg).slice(
+    (id - 1) * 4,
+    (id - 1) * 4 + 4
+  );
   const [curr, setCurr] = useState(0);
   const [activeBtn, setActiveBtn] = useState(0);
   const navigateBtn = [0, 1, 2, 3];
 
-  const carouselPicSet = useSelector((state) => state.house.housesImg).slice(
-    id * 4,
-    id * 4 + 4
-  );
   const nextElem = (elem) => {
     setCurr(elem);
     setActiveBtn(elem);
@@ -23,12 +23,12 @@ export const Carousel = ({ id }) => {
         className="product-card__carousel-container"
         style={{ transform: `translateX(-${curr * 224}px)` }}
       >
-        {carouselPicSet.map((elem) => (
+        {housesImage.map((elem) => (
           <img
             key={uuid()}
             className="product-card__image-elem"
-            src={elem.url}
-            alt={elem.title}
+            src={elem.urls.small}
+            alt={elem.alt_description}
           ></img>
         ))}
       </div>

@@ -8,6 +8,7 @@ import "./product-cards.css";
 export const ProductCards = () => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
   const houses = useSelector((state) => state.house.houses);
+
   useEffect(() => {}, [statusSpiner, houses]);
   return (
     <div className="product-cards">
