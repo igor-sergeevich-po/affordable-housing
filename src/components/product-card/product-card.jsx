@@ -8,8 +8,9 @@ import { setStatusSeen, setStausFavourites } from "../../redux/slices/houseSlice
 import { addFavourite, removeFavourite } from "../../redux/slices/favouriteSlice";
 import { Carousel } from "../carousel";
 import "./product-card.css";
+import { setStausFavouritesPopular } from "../../redux/slices/popularSlice";
 
-export const ProductCard = ({ house }) => {
+export const ProductCard = ({ house, housesImage }) => {
   const { oldPrice, price, seen, id, locality, date } = house;
   const favourites = useSelector((state) => state.favourite.favourites);
   const title = house.title.length > 23 ? house.title.slice(0, 23) + "..." : house.title;
@@ -31,8 +32,10 @@ export const ProductCard = ({ house }) => {
       house = { ...house, isFavourites: true, seen: true };
 
       dispatch(setStausFavourites(house.title));
+      dispatch(setStausFavouritesPopular(house.title));
       dispatch(addFavourite(house));
     } else if (isContain) {
+      dispatch(setStausFavouritesPopular(house.title));
       dispatch(setStausFavourites(house.title));
       dispatch(removeFavourite(house.title));
     }
@@ -51,13 +54,8 @@ export const ProductCard = ({ house }) => {
       )}
 
       <div className={`product-card__image`}>
-        <Carousel id={id} />
+        <Carousel housesImage={housesImage} id={id} />
 
-        {/* <img
-          className="product-card__image-elem"
-          src={housesImg.url}
-          alt={housesImg.title}
-        /> */}
         <AiOutlineHeart
           onClick={() => setFavourite()}
           className={`icons icon-heart ${

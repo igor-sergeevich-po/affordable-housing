@@ -13,7 +13,9 @@ import "./filter-page.css";
 export const FilterPage = () => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
   const currentPage = useSelector((state) => state.house.currentPage);
-  const unsplash = useSelector((state) => state.house.unsplashImg);
+  const houses = useSelector((state) => state.house.houses);
+
+  const housesImage = useSelector((state) => state.house.housesImg);
 
   const [limitElemOnPage, setLimitElemOnPage] = useState(6);
   const dispatch = useDispatch();
@@ -29,7 +31,7 @@ export const FilterPage = () => {
     }
   }, [dispatch]);
 
-  useEffect(() => {}, [unsplash, statusSpiner]);
+  useEffect(() => {}, [housesImage, statusSpiner]);
 
   const handleFetch = () => {
     dispatch(setStatusDownloaded(false));
@@ -46,7 +48,15 @@ export const FilterPage = () => {
 
   return (
     <div className="filter-page">
-      {!statusSpiner ? <Spiner /> : <ProductCards />}
+      {!statusSpiner ? (
+        <Spiner />
+      ) : (
+        <ProductCards
+          houses={houses}
+          housesImage={housesImage}
+          titleText="Похожие объявления"
+        />
+      )}
 
       <Link href="#" className="filter-page__btn-more" onClick={handleFetch}>
         Показать ещё &or;

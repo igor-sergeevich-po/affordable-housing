@@ -5,7 +5,6 @@ import axios from "axios";
 const initialState = {
   houses: [],
   housesImg: [],
-  unsplashImg: [],
   isDownloaded: false,
   currentPage: 1,
 };
@@ -45,7 +44,7 @@ export const houseSlice = createSlice({
       state.housesImg.push(...action.payload);
     },
     setHousesUnsplash: (state, action) => {
-      state.unsplashImg.push(...action.payload);
+      state.housesImg.push(...action.payload);
     },
     setStatusDownloaded: (state, action) => {
       state.isDownloaded = action.payload;

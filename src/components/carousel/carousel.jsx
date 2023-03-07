@@ -3,11 +3,10 @@ import { useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 import "./carousel.css";
 
-export const Carousel = ({ id }) => {
-  const housesImage = useSelector((state) => state.house.unsplashImg).slice(
-    (id - 1) * 4,
-    (id - 1) * 4 + 4
-  );
+export const Carousel = ({ id, housesImage }) => {
+  // console.log(housesImage);
+  // console.log(id);
+  housesImage = housesImage?.slice((id - 1) * 4, (id - 1) * 4 + 4);
   const [curr, setCurr] = useState(0);
   const [activeBtn, setActiveBtn] = useState(0);
   const navigateBtn = [0, 1, 2, 3];
@@ -23,7 +22,7 @@ export const Carousel = ({ id }) => {
         className="product-card__carousel-container"
         style={{ transform: `translateX(-${curr * 224}px)` }}
       >
-        {housesImage.map((elem) => (
+        {housesImage?.map((elem) => (
           <img
             key={uuid()}
             className="product-card__image-elem"
