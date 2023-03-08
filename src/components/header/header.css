@@ -8,7 +8,6 @@
 .wrapper {
   display: flex;
   align-items: center;
-
   justify-content: space-around;
   flex-grow: 1;
 }
@@ -54,4 +53,35 @@
   font-size: 8px;
   border-radius: 15px;
   transition: 0.2s;
+}
+
+@media (max-width: 1279px) {
+  .header {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  .header__housing-title {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .footer {
+    font-size: 10px;
+    padding: 8px;
+    height: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .header {
+    height: 30px;
+    margin-bottom: 10px;
+  }
+  .header__housing-title {
+    font-size: 12px;
+    padding: 6px;
+  }
+  .footer {
+    font-size: 8px;
+    padding: 3px;
+    height: 10px;
+  }
 }

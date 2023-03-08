@@ -51,11 +51,13 @@ export const FilterPage = () => {
       {!statusSpiner ? (
         <Spiner />
       ) : (
-        <ProductCards
-          houses={houses}
-          housesImage={housesImage}
-          titleText="Похожие объявления"
-        />
+        <div className="favourites-cards">
+          <ProductCards
+            houses={houses}
+            housesImage={housesImage}
+            titleText="Похожие объявления"
+          />
+        </div>
       )}
 
       <Link href="#" className="filter-page__btn-more" onClick={handleFetch}>

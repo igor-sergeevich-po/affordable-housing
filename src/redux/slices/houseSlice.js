@@ -29,7 +29,6 @@ export const getHouses = createAsyncThunk(
     dispatch(setHouses(res.data));
     dispatch(setHousesUnsplash(resUnsplash.data));
     dispatch(setStatusDownloaded(true));
-    // dispatch(setHousesImg(resImg.data));
   }
 );
 

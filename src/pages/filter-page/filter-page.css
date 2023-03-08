@@ -1,5 +1,5 @@
 .filter-page {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   min-height: calc(100vh-200px);
 }
@@ -17,4 +17,27 @@
 }
 .filter-page__btn-more:hover {
   color: rgb(0, 234, 156);
+}
+
+@media (max-width: 1279px) {
+  .filter-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1080px;
+    margin: auto;
+  }
+  .filter-page__btn-more {
+    margin: 0;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 16.09px;
+    font-weight: 500;
+  }
+}
+@media (max-width: 1024px) {
+  .filter-page {
+    max-width: 100%;
+  }
 }

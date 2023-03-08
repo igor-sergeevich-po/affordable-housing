@@ -1,7 +1,7 @@
 .product-card {
   position: relative;
-  width: 224px;
-  height: 368px;
+  max-width: 224px;
+  max-height: 368px;
   border-radius: 8px;
   background-color: rgb(255, 255, 255);
   box-shadow: var(--itemShadow) 0 0 20px 0;

@@ -7,14 +7,13 @@ import "./product-cards.css";
 
 export const ProductCards = ({ houses, housesImage, titleText }) => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
-  // const houses = useSelector((state) => state.house.houses);
 
   useEffect(() => {}, [statusSpiner, houses]);
   return (
     <div className="product-cards">
       <div className="product-cards__container">
         <div className="product-cards__title">
-          <span className="product-cards__title-text">{titleText}:</span>
+          <div className="product-cards__title-text">{titleText}:</div>
         </div>
 
         {!statusSpiner ? (
