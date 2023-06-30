@@ -43,7 +43,6 @@ export const Header = () => {
               )}
             </NavLink>
           </nav>
-          <Search />
           <Theme></Theme>
         </div>
       </header>

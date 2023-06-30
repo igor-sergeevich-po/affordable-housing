@@ -9,6 +9,7 @@ import {
 import { Spiner } from "../../components/spiner";
 import { Link } from "react-router-dom";
 import "./filter-page.css";
+import { Search } from '../../components/search';
 
 export const FilterPage = () => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);

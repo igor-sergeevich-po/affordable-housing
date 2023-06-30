@@ -7,7 +7,8 @@
 .product-cards__title {
   display: flex;
   width: 968px;
-  justify-content: flex-start;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 .product-cards__title-text {
   margin-bottom: 8px;

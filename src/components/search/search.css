@@ -1,10 +1,12 @@
 .wrapperr {
     width: 100px;
+    margin-right: 100px;
 }
 
 .search {
     display: flex;
-    justify-content: start;
+    justify-content: end;
+    
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
