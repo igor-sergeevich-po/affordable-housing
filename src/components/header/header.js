@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { Theme } from "../theme";
 import "./header.css";
+import { Search } from '../search';
 
 export const Header = () => {
   const data = Date().split(" ").slice(0, 4).join(" ");
@@ -42,6 +43,7 @@ export const Header = () => {
               )}
             </NavLink>
           </nav>
+          <Search />
           <Theme></Theme>
         </div>
       </header>
