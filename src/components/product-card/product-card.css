@@ -1,0 +1,118 @@
+.product-card {
+  position: relative;
+  max-width: 224px;
+  max-height: 368px;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: var(--itemShadow) 0 0 20px 0;
+  margin: 0 12px 24px;
+  transition: 0.3s;
+}
+.product-card__is-seen {
+  background: var(--markItem);
+}
+.product-card__status-container {
+  display: flex;
+  justify-content: center;
+}
+.product-card__status {
+  background-color: rgb(17%, 17%, 17%, 0.75);
+  position: absolute;
+  border-radius: 8px;
+  padding: 5px 8px;
+  top: 12px;
+  color: var(--backGroundColor);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  z-index: 5;
+}
+.product-card:hover {
+  box-shadow: var(--markIcon) 0 0 20px 0;
+  transform: translateY(-3px);
+}
+.product-card__image {
+  height: 260px;
+  width: 224px;
+  margin: 0;
+  padding: 0;
+}
+
+.product-card__description {
+  margin: 0 12px;
+}
+
+.product-card__header {
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+.product-card__header-old-price {
+  text-decoration: line-through;
+  font-weight: 400;
+  color: var(--oldPriceGray);
+  line-height: 16.09px;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+.product-card__header-icons {
+  display: flex;
+  color: var(--lightGray);
+  gap: 6px;
+}
+.header-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
+.icons {
+  font-size: 24px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.icon-heart {
+  position: absolute;
+  top: 200px;
+  left: 188px;
+  color: var(--lightGray);
+}
+.icon-heart__active {
+  color: var(--markIcon);
+  font-size: 26px;
+}
+.icon-chart {
+  position: absolute;
+  top: 166px;
+  left: 188px;
+  color: var(--lightGray);
+}
+.icons:hover {
+  color: var(--markIcon);
+}
+.product-card__base-price {
+  position: relative;
+  top: -10px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 22px;
+  line-height: 16.09px;
+  font-weight: 500;
+}
+.product-card__description {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--darkGray);
+  margin-bottom: 14px;
+}
+.product-card__location {
+  display: flex;
+  justify-content: space-around;
+  color: var(--locationGray);
+  line-height: 14px;
+  font-weight: 400;
+  font-size: 12px;
+}

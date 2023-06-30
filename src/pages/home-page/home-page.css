@@ -1,0 +1,6 @@
+.home-page {
+  min-height: calc(100vh - 180px);
+}
+.home-page__title {
+  margin-bottom: 5px;
+}
