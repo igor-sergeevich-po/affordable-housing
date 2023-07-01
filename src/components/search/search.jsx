@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './search.css'
 
-export const Search = ({houses}) => {
-  const [text, setText] = useState('')
-    console.log(houses)
-  function handleInput(e) {
-    setText(e.target.value)
-    console.log(e.target.value)
-
-  }
+export const Search = ({filterKey, setFilterKey}) => {
   return (
     <div className='wrapperr'>
-        <input value={text} className='search' type='text' placeholder='Поиск_' onChange={(e)=>handleInput(e)} />
+        <label className='label'>
+          Поиск:
+          <input id='searchInput' value={filterKey} className='search' type='text' placeholder='введите текст' onChange={(e)=>setFilterKey(e.target.value)} />
+
+        </label>
     </div>
   )
 }

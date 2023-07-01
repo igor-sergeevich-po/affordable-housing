@@ -4,6 +4,7 @@ import { ProductCard } from "../product-card/product-card";
 import { Spiner } from "../spiner";
 import { v4 as uuid } from "uuid";
 import "./product-cards.css";
+import { Search } from '../search';
 
 export const ProductCards = ({ houses, housesImage, titleText }) => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
@@ -15,7 +16,8 @@ export const ProductCards = ({ houses, housesImage, titleText }) => {
       <div className="product-cards__container">
         <div className="product-cards__title">
           <div className="product-cards__title-text">{titleText}:</div>
-          <input value={filterKey} className='search' type='text' placeholder='Поиск_' onChange={(e)=>setFilterKey(e.target.value)} />
+          <Search filterKey={filterKey} setFilterKey={setFilterKey} />
+          {/* <input value={filterKey} className='search' type='text' placeholder='Поиск_' onChange={(e)=>setFilterKey(e.target.value)} /> */}
         </div>
 
         {!statusSpiner ? (

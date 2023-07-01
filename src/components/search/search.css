@@ -1,12 +1,15 @@
+.label {
+    cursor: pointer;
+}
 .wrapperr {
-    width: 100px;
-    margin-right: 100px;
+    display: flex;
+    margin-right: 20px;
 }
 
 .search {
     display: flex;
     justify-content: end;
-    
+    text-align: center;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
@@ -15,7 +18,7 @@
     transition: 0.7s;
 }
 .search::placeholder {
-    color: rgb(0, 0, 0);
+    color: rgb(107, 82, 82);
     line-height: 25px;
     transition: ease-in-out 0.3s;
 }

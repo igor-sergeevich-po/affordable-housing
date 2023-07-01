@@ -27,6 +27,8 @@
     flex-direction: row;
   }
   .product-cards__title {
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
   .product-cards__title-text {
