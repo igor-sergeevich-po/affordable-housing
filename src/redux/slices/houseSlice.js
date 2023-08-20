@@ -19,15 +19,15 @@ export const getHouses = createAsyncThunk(
     const res = await axios.get(url);
     // const resImg = await axios.get("https://jsonplaceholder.typicode.com/photos");
 
-    const resUnsplash = await axios
-      .get(
-        "https://api.unsplash.com/photos/random?client_id=NcMjHTa__4twlLaP28avVF_ki52TgJiv0-y9-1iZvXQ&count=24&query=house"
-      )
+    // const resUnsplash = await axios
+    //   .get(
+    //     "https://api.unsplash.com/photos/random?client_id=NcMjHTa__4twlLaP28avVF_ki52TgJiv0-y9-1iZvXQ&count=24&query=house"
+    //   )
 
-      .catch((err) => console.log(err));
+    //   .catch((err) => console.log(err));
 
     dispatch(setHouses(res.data));
-    dispatch(setHousesUnsplash(resUnsplash.data));
+    // dispatch(setHousesUnsplash(resUnsplash.data));
     dispatch(setStatusDownloaded(true));
   }
 );

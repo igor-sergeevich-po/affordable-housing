@@ -23,19 +23,19 @@ export const Header = () => {
         <div className="wrapper">
           <nav className="nav">
             <NavLink to="/affordable-housing/" className="header__housing-title">
-              Home page
+              Доступное жильё
             </NavLink>
             <NavLink
               to="/affordable-housing/filter-page"
               className="header__housing-title"
             >
-              Filter page
+              Найти
             </NavLink>
             <NavLink
               to="/affordable-housing/favourites-page"
               className="header__housing-title"
             >
-              Favourites page
+              Избранное
               {favouriteLength < 1 ? (
                 ""
               ) : (

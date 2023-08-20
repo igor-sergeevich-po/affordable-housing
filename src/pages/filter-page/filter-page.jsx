@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { ProductCards } from "../../components/product-cards/product-cards";
 import {
   getHouses,
   setCurrentPage,
-  setStatusDownloaded,
+  setStatusDownloaded
 } from "../../redux/slices/houseSlice";
 import { Spiner } from "../../components/spiner";
-import { Link } from "react-router-dom";
 import "./filter-page.css";
 import { Search } from '../../components/search';
 
@@ -18,7 +19,7 @@ export const FilterPage = () => {
 
   const housesImage = useSelector((state) => state.house.housesImg);
 
-  const [limitElemOnPage, setLimitElemOnPage] = useState(6);
+  const [limitElemOnPage] = useState(8);
   const dispatch = useDispatch();
 
   const url = new URL("https://6075786f0baf7c0017fa64ce.mockapi.io/products");
@@ -56,12 +57,12 @@ export const FilterPage = () => {
           <ProductCards
             houses={houses}
             housesImage={housesImage}
-            titleText="Похожие объявления"
+            titleText="Актуальные объявления"
           />
         </div>
       )}
 
-      <Link href="#" className="filter-page__btn-more" onClick={handleFetch}>
+      <Link href="null" className="filter-page__btn-more" onClick={handleFetch}>
         Показать ещё &or;
       </Link>
     </div>

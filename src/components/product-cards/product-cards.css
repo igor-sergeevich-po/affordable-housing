@@ -8,6 +8,7 @@
   display: flex;
   width: 968px;
   justify-content: space-between;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 .product-cards__title-text {
@@ -25,6 +26,8 @@
 @media (max-width: 1279px) {
   .product-cards {
     flex-direction: row;
+    /* flex-direction: column; */
+
   }
   .product-cards__title {
     flex-direction: column;
