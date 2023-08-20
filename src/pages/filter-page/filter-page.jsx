@@ -19,7 +19,7 @@ export const FilterPage = () => {
 
   const housesImage = useSelector((state) => state.house.housesImg);
 
-  const [limitElemOnPage] = useState(8);
+  const [limitElemOnPage] = useState(6);
   const dispatch = useDispatch();
 
   const url = new URL("https://6075786f0baf7c0017fa64ce.mockapi.io/products");
