@@ -9,8 +9,9 @@ import {
   setStatusDownloaded
 } from "../../redux/slices/houseSlice";
 import { Spiner } from "../../components/spiner";
-import "./filter-page.css";
 import { Search } from '../../components/search';
+import "./filter-page.css";
+
 
 export const FilterPage = () => {
   const statusSpiner = useSelector((state) => state.house.isDownloaded);
@@ -19,7 +20,7 @@ export const FilterPage = () => {
 
   const housesImage = useSelector((state) => state.house.housesImg);
 
-  const [limitElemOnPage] = useState(6);
+  const [limitElemOnPage] = useState(8);
   const dispatch = useDispatch();
 
   const url = new URL("https://6075786f0baf7c0017fa64ce.mockapi.io/products");
@@ -33,7 +34,8 @@ export const FilterPage = () => {
     }
   }, [dispatch]);
 
-  useEffect(() => {}, [housesImage, statusSpiner]);
+
+  // useEffect(() => {}, [housesImage, statusSpiner]);
 
   const handleFetch = () => {
     dispatch(setStatusDownloaded(false));
@@ -47,6 +49,32 @@ export const FilterPage = () => {
     dispatch(setCurrentPage(currentPage + 1));
     dispatch(getHouses(url));
   };
+
+  // scroll
+
+  
+
+
+    // console.log('top',documentRect.top);
+    // console.log('bottom',documentRect.bottom);
+    // console.log('elem', documentRect)
+
+
+        //   window.addEventListener('scroll', () => {
+        //     const documentRect = document.documentElement.getBoundingClientRect();
+        //   if (documentRect.bottom < document.documentElement.clientHeight + 250) {
+       
+        //       console.log('run');
+
+         
+         
+    
+        //     // handleFetch();
+        //   }
+        // })
+ 
+
+
 
   return (
     <div className="filter-page">

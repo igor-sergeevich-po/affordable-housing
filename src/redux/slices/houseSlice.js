@@ -24,7 +24,7 @@ export const getHouses = createAsyncThunk(
         "https://api.unsplash.com/photos/random?client_id=NcMjHTa__4twlLaP28avVF_ki52TgJiv0-y9-1iZvXQ&count=24&query=house"
       )
 
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err.response.data));
 
     dispatch(setHouses(res.data));
     dispatch(setHousesUnsplash(resUnsplash.data));

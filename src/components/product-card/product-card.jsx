@@ -15,7 +15,6 @@ export const ProductCard = ({ house, housesImage }) => {
   const favourites = useSelector((state) => state.favourite.favourites);
   const title = house.title.length > 23 ? house.title.slice(0, 23) + "..." : house.title;
   const dispatch = useDispatch();
-  console.log(house)
   const handleClick = () => {
     dispatch(setStatusSeen(house.title));
   };

@@ -6,10 +6,10 @@ import "./carousel.css";
 export const Carousel = ({ id, housesImage }) => {
   // console.log(housesImage);
   // console.log(id);
-  housesImage = housesImage?.slice((id - 1) * 4, (id - 1) * 4 + 4);
+  housesImage = housesImage?.slice((id - 1) * 3, (id - 1) * 4 + 4);
   const [curr, setCurr] = useState(0);
   const [activeBtn, setActiveBtn] = useState(0);
-  const navigateBtn = [0, 1, 2, 3];
+  const navigateBtn = [0, 1, 2];
 
   const nextElem = (elem) => {
     setCurr(elem);

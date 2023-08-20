@@ -28,7 +28,7 @@ export const ProductCards = ({ houses, housesImage, titleText }) => {
                 <Spiner />
               ) : (
                 houses?.map((house) => {
-                  console.log(searchKey && house.title.toLowerCase().indexOf(searchKey.toLowerCase()) !== -1)
+                 
                   if (searchKey && house.title.toLowerCase().indexOf(searchKey.toLowerCase()) !== -1){
                     return <ProductCard house={house} housesImage={housesImage} key={uuid()} />
                   
