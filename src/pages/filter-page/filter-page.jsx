@@ -9,7 +9,7 @@ import {
   setStatusDownloaded
 } from "../../redux/slices/houseSlice";
 import { Spiner } from "../../components/spiner";
-import { Search } from '../../components/search';
+import { useInView } from "react-intersection-observer";
 import "./filter-page.css";
 
 
@@ -27,6 +27,7 @@ export const FilterPage = () => {
   url.searchParams.append("page", currentPage);
   url.searchParams.append("limit", limitElemOnPage);
 
+
   useEffect(() => {
     if (currentPage === 1) {
       dispatch(setCurrentPage(currentPage + 1));
@@ -39,9 +40,10 @@ export const FilterPage = () => {
 
   const handleFetch = () => {
     dispatch(setStatusDownloaded(false));
+
     setTimeout(() => {
       window.scrollBy({
-        top: 50000,
+        bottom: window.innerHeight,
         behavior: "smooth",
       });
     }, 500);
@@ -51,31 +53,15 @@ export const FilterPage = () => {
   };
 
   // scroll
+  const {ref, inView} = useInView({
+    threshold: 0.9
+  });
 
-  
-
-
-    // console.log('top',documentRect.top);
-    // console.log('bottom',documentRect.bottom);
-    // console.log('elem', documentRect)
-
-
-        //   window.addEventListener('scroll', () => {
-        //     const documentRect = document.documentElement.getBoundingClientRect();
-        //   if (documentRect.bottom < document.documentElement.clientHeight + 250) {
-       
-        //       console.log('run');
-
-         
-         
-    
-        //     // handleFetch();
-        //   }
-        // })
+  useEffect(() => {
+    dispatch(setStatusDownloaded(false));
+    handleFetch();
+  },[inView])
  
-
-
-
   return (
     <div className="filter-page">
       {!statusSpiner ? (
@@ -90,9 +76,12 @@ export const FilterPage = () => {
         </div>
       )}
 
-      <Link href="null" className="filter-page__btn-more" onClick={handleFetch}>
+{!statusSpiner ? (
+  ''
+      ) : (
+      <Link ref={ref} href="null" className="filter-page__btn-more" onClick={handleFetch}>
         Показать ещё &or;
-      </Link>
+      </Link>)}
     </div>
   );
 };
