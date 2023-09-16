@@ -12,11 +12,14 @@
 
 * появится главная страница с популярными обьектами, посмотрите подробную информацию о заинтересовавшем вас обьекте кликнув правой кнопкой мыши по нему.
   
-![Скриншот 26 06 23_20 51 01](https://github.com/igor-sergeevich-po/affordable-housing/assets/93769681/41b89bbe-443b-4ac4-a42a-4e0d0d56dcde)
+
+![1](https://github.com/igor-sergeevich-po/affordable-housing/assets/93769681/3b995558-d1f5-4a73-b42d-68b382f91ea0)
+
 
 * для уточнения параметров подбора обьектов перейдите по ссылке "Filter page"
   
-  ![Скриншот 26 06 23_20 51 15](https://github.com/igor-sergeevich-po/affordable-housing/assets/93769681/b29109e9-a21e-4ae3-ac04-c537d65d9abd)
+![2](https://github.com/igor-sergeevich-po/affordable-housing/assets/93769681/d9651fa7-1087-49f0-8acf-d6f53a1cf4f0)
+
   
 * кликните по кнопке "Показать ещё" для отображения большего количества обьектов
   
@@ -24,4 +27,4 @@
 
 * для просмотра избранных обьявлений необходимо кликнуть по кнопке "Favourites page", в которой указано количество отслеживаемых обьявлений.
   
-* ![Скриншот 26 06 23_20 51 57](https://github.com/igor-sergeevich-po/affordable-housing/assets/93769681/9e11a656-5b46-464e-a68c-c5bc714eca4a)
+![3](https://github.com/igor-sergeevich-po/affordable-housing/assets/93769681/52b970d0-9767-4bc3-8217-c5c279053200)
