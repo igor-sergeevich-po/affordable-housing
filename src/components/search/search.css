@@ -1,0 +1,36 @@
+.label {
+    cursor: pointer;
+}
+.wrapperr {
+    display: flex;
+    margin-right: 20px;
+}
+
+.search {
+    display: flex;
+    justify-content: end;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    line-height: 25px;
+    width: 50px;
+    transition: 0.7s;
+}
+.search::placeholder {
+    color: rgb(107, 82, 82);
+    line-height: 25px;
+    transition: ease-in-out 0.3s;
+}
+.search:focus {
+    width: 190px;
+    color: black;
+    outline: none;
+    transition: width ease-out 0.5s;
+}
+.search:hover {
+    color: rgb(0, 0, 0);
+    box-shadow: -4px -4px 33px rgb(0, 132, 139);
+    cursor: pointer;
+    transition: 0.3s;
+}

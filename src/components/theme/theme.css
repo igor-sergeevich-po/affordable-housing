@@ -1,0 +1,16 @@
+.header_theme-button {
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+  color: rgb(166, 166, 166);
+}
+
+.header_theme-button:hover {
+  color: var(--sunThemeColor);
+  transform: rotate(140deg);
+}
+.header_theme-button:active {
+  transform: translateY(3px);
+}

@@ -1,0 +1,57 @@
+.product-card__carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card__carousel-container {
+  display: flex;
+  height: 260px;
+  transition: 0.3s;
+}
+.product-card__image-elem {
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+.carousel__navigate {
+  display: flex;
+  gap: 15px;
+}
+
+.carousel__navigate-elem {
+  cursor: pointer;
+  position: absolute;
+  top: 248px;
+  color: white;
+  border: 1px solid var(--oldPriceGray);
+  border-radius: 15px;
+  font-size: 4px;
+  background-color: white;
+  transition: 0.3s;
+  line-height: 4px;
+  padding: 0.4px 1.2px;
+}
+
+.carousel__activ-btn {
+  color: var(--markIcon);
+  background-color: var(--markIcon);
+}
+
+.carousel__navigate-elem:hover {
+  background-color: var(--markIcon);
+  color: var(--markIcon);
+}
+
+.elem0 {
+  left: 85px;
+}
+.elem1 {
+  left: 101px;
+}
+.elem2 {
+  left: 117px;
+}
+.elem3 {
+  left: 133px;
+}
